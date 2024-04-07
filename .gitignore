@@ -1,0 +1,7 @@
+.idea/
+data/
+fonts/
+node_modules/
+resources/
+project.discordbot
+package-lock.json
