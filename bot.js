@@ -77,7 +77,7 @@ function PrintError(type) {
     case MsgType.MISSING_ACTIONS: {
       error(
         format(
-          '[Missing Actions]\nPlease copy the "Actions" folder from the Discord Bot Maker directory to this bot\'s directory: \n%s',
+          "[Missing Actions]\nPlease copy the \"Actions\" folder from the Discord Bot Maker directory to this bot's directory: \n%s",
           arguments[1],
         ),
       );
@@ -86,42 +86,42 @@ function PrintError(type) {
 
 
     case MsgType.DUPLICATE_SLASH_COMMAND: {
-      warn(format('[Duplicate Slash Command]\nSlash command with name "%s" already exists!\nThis duplicate will be ignored.\n', arguments[1]));
+      warn(format("[Duplicate Slash Command]\nSlash command with name \"%s\" already exists!\nThis duplicate will be ignored.\n", arguments[1]));
       break;
     }
     case MsgType.TOO_MANY_SPACES_SLASH_NAME: {
-      warn(format('[Too Many Spaces in Slash Name]\nSlash command with name "%s" has too many spaces!\nSlash command names may only contain a maximum of three different words.\n', arguments[1]));
+      warn(format("[Too Many Spaces in Slash Name]\nSlash command with name \"%s\" has too many spaces!\nSlash command names may only contain a maximum of three different words.\n", arguments[1]));
       break;
     }
     case MsgType.SUB_COMMAND_ALREADY_EXISTS: {
-      warn(format('[Sub-Command Already Exists]\nSlash command with name "%s" cannot exist.\nIt requires the creation of a "sub-command group" called "%s",\nbut there\'s already a command with that name.', arguments[1], arguments[2]));
+      warn(format("[Sub-Command Already Exists]\nSlash command with name \"%s\" cannot exist.\nIt requires the creation of a \"sub-command group\" called \"%s\",\nbut there's already a command with that name.", arguments[1], arguments[2]));
       break;
     }
     case MsgType.SUB_COMMAND_GROUP_ALREADY_EXISTS: {
-      warn(format('[Sub-Command Group Already Exists]\nSlash command with name "%s" cannot exist.\nThere is already a "sub-command group" with that name.\nThe "sub-command group" exists because of a command named something like: "%s _____"', arguments[1], arguments[1]));
+      warn(format("[Sub-Command Group Already Exists]\nSlash command with name \"%s\" cannot exist.\nThere is already a \"sub-command group\" with that name.\nThe \"sub-command group\" exists because of a command named something like: \"%s _____\"", arguments[1], arguments[1]));
       break;
     }
     case MsgType.INVALID_SLASH_NAME: {
       error(
         format(
-          '[Invalid Slash Command Name]\nSlash command has invalid name: "%s".\nSlash command names cannot have spaces and must only contain letters, numbers, underscores, and dashes!\nThis command will be ignored.',
+          "[Invalid Slash Command Name]\nSlash command has invalid name: \"%s\".\nSlash command names cannot have spaces and must only contain letters, numbers, underscores, and dashes!\nThis command will be ignored.",
           arguments[1],
         ),
       );
       break;
     }
     case MsgType.DUPLICATE_USER_COMMAND: {
-      warn(format('[Duplicate User Command]\nUser command with name "%s" already exists!\nThis duplicate will be ignored.\n', arguments[1]));
+      warn(format("[Duplicate User Command]\nUser command with name \"%s\" already exists!\nThis duplicate will be ignored.\n", arguments[1]));
       break;
     }
     case MsgType.DUPLICATE_MESSAGE_COMMAND: {
-      warn(format('[Duplicate Message Command]\nMessage command with name "%s" already exists!\nThis duplicate will be ignored.\n', arguments[1]));
+      warn(format("[Duplicate Message Command]\nMessage command with name \"%s\" already exists!\nThis duplicate will be ignored.\n", arguments[1]));
       break;
     }
     case MsgType.DUPLICATE_SLASH_PARAMETER: {
       warn(
         format(
-          '[Duplicate Slash Command]\nSlash command "%s" parameter #%d ("%s") has a name that\'s already being used!\nThis duplicate will be ignored.\n',
+          "[Duplicate Slash Command]\nSlash command \"%s\" parameter #%d (\"%s\") has a name that's already being used!\nThis duplicate will be ignored.\n",
           arguments[1],
           arguments[2],
           arguments[3],
@@ -132,7 +132,7 @@ function PrintError(type) {
     case MsgType.INVALID_SLASH_PARAMETER_NAME: {
       error(
         format(
-          '[Invalid Slash Parameter Name]\nSlash command "%s" parameter #%d has invalid name: "%s".\nSlash command parameter names cannot have spaces and must only contain letters, numbers, underscores, and dashes!\nThis parameter will be ignored.\n',
+          "[Invalid Slash Parameter Name]\nSlash command \"%s\" parameter #%d has invalid name: \"%s\".\nSlash command parameter names cannot have spaces and must only contain letters, numbers, underscores, and dashes!\nThis parameter will be ignored.\n",
           arguments[1],
           arguments[2],
           arguments[3],
@@ -142,7 +142,7 @@ function PrintError(type) {
     }
     case MsgType.INVALID_SLASH_COMMAND_SERVER_ID: {
       error(
-        format('Invalid Server ID "%s" listed in "Slash Command Options -> Server IDs for Slash Commands"!\n'),
+        format("Invalid Server ID \"%s\" listed in \"Slash Command Options -> Server IDs for Slash Commands\"!\n"),
         arguments[1],
       );
       break;
@@ -150,7 +150,7 @@ function PrintError(type) {
     case MsgType.DUPLICATE_BUTTON_ID: {
       warn(
         format(
-          'Button interaction with unique id "%s" already exists!\nThis duplicate will be ignored.\n',
+          "Button interaction with unique id \"%s\" already exists!\nThis duplicate will be ignored.\n",
           arguments[1],
         ),
       );
@@ -159,7 +159,7 @@ function PrintError(type) {
     case MsgType.DUPLICATE_SELECT_ID: {
       warn(
         format(
-          'Select menu interaction with unique id "%s" already exists!\nThis duplicate will be ignored.\n',
+          "Select menu interaction with unique id \"%s\" already exists!\nThis duplicate will be ignored.\n",
           arguments[1],
         ),
       );
@@ -170,7 +170,7 @@ function PrintError(type) {
     case MsgType.MISSING_APPLICATION_COMMAND_ACCESS: {
       warn(
         format(
-          'Slash commands cannot be provided to server: %s (ID: %s).\nPlease re-invite the bot to this server using the invite link found in "Settings -> Bot Settings".\nAlternatively, you can switch to using Global Slash Commands in "Settings -> Slash Command Settings -> Slash Command Creation Preference". However, please note global commands take a long time to update (~1 hour).',
+          "Slash commands cannot be provided to server: %s (ID: %s).\nPlease re-invite the bot to this server using the invite link found in \"Settings -> Bot Settings\".\nAlternatively, you can switch to using Global Slash Commands in \"Settings -> Slash Command Settings -> Slash Command Creation Preference\". However, please note global commands take a long time to update (~1 hour).",
           arguments[1],
           arguments[2],
         ),
@@ -179,46 +179,46 @@ function PrintError(type) {
     }
 
     case MsgType.MISSING_MUSIC_MODULES: {
-      warn(format('Could not load audio-related Node modules.\nPlease run "File -> Music Capabilities -> Update Music Libraries" to ensure they are installed.'));
+      warn(format("Could not load audio-related Node modules.\nPlease run \"File -> Music Capabilities -> Update Music Libraries\" to ensure they are installed."));
       break;
     }
 
 
     case MsgType.MUTABLE_VOLUME_DISABLED: {
-      warn(format('[Mutable Volume Disabled]\nTried setting volume but "Mutable Volume" is disabled.'));
+      warn(format("[Mutable Volume Disabled]\nTried setting volume but \"Mutable Volume\" is disabled."));
       break;
     }
     case MsgType.MUTABLE_VOLUME_NOT_IN_CHANNEL: {
-      warn(format('[Mutable Volume Not in Channel]\nTried setting volume but the bot is not in a voice channel.'));
+      warn(format("[Mutable Volume Not in Channel]\nTried setting volume but the bot is not in a voice channel."));
       break;
     }
 
     case MsgType.ERROR_GETTING_YT_INFO: {
-      warn(format('Error getting YouTube info.\n%s', arguments[1]));
+      warn(format("Error getting YouTube info.\n%s", arguments[1]));
       break;
     }
 
     case MsgType.ERROR_CREATING_AUDIO: {
-      warn(format('Error creating audio resource.\n%s', arguments[1]));
+      warn(format("Error creating audio resource.\n%s", arguments[1]));
       break;
     }
 
 
     case MsgType.MISSING_MEMBER_INTENT_FIND_USER_ID: {
-      warn(' - DBM Warning - \nFind User (by Name/ID) may freeze or error because\nthe bot has not enabled the Server Member Events Intent.');
+      warn(" - DBM Warning - \nFind User (by Name/ID) may freeze or error because\nthe bot has not enabled the Server Member Events Intent.");
       break;
     }
     case MsgType.CANNOT_FIND_USER_BY_ID: {
-      warn(format('[Cannot Find User by ID]\nCannot find user by id: %s', arguments[1]));
+      warn(format("[Cannot Find User by ID]\nCannot find user by id: %s", arguments[1]));
       break;
     }
 
     case MsgType.SERVER_MESSAGE_INTENT_REQUIRED: {
-      warn(format('[Message Content Intent Required]\n%s commands found that require the "Message Content" intent.\nThese commands require the bot to be able to read messages from Discord servers.\nTo enable this behavior, first ensure the "MESSAGE CONTENT INTENT" is enabled in the "Bot" section on the Discord Developer Portal (the same page you got your bot token from).\nSecondly, in Discord Bot Maker, select Extensions -> Bot Intents from the title menu bar, and in this dialog, make sure "Message Content" is checked.', arguments[1]));
+      warn(format("[Message Content Intent Required]\n%s commands found that require the \"Message Content\" intent.\nThese commands require the bot to be able to read messages from Discord servers.\nTo enable this behavior, first ensure the \"MESSAGE CONTENT INTENT\" is enabled in the \"Bot\" section on the Discord Developer Portal (the same page you got your bot token from).\nSecondly, in Discord Bot Maker, select Extensions -> Bot Intents from the title menu bar, and in this dialog, make sure \"Message Content\" is checked.", arguments[1]));
       break;
     }
     case MsgType.CHANNEL_PARTIAL_REQUIRED: {
-      warn(format('[Channel Partial Required]\n%s commands are set to "DMs Only", but the Channel partial is not enabled.\nTo allow the bot to read messages from DMs, do the following: In Discord Bot Maker, on the title menu bar, go to Extensions -> Bot Partials.\nIn the dialog that appears, select "Custom" and then make sure "Channel (Enables DMs)" is checked.', arguments[1]));
+      warn(format("[Channel Partial Required]\n%s commands are set to \"DMs Only\", but the Channel partial is not enabled.\nTo allow the bot to read messages from DMs, do the following: In Discord Bot Maker, on the title menu bar, go to Extensions -> Bot Partials.\nIn the dialog that appears, select \"Custom\" and then make sure \"Channel (Enables DMs)\" is checked.", arguments[1]));
     }
   }
 }
@@ -357,9 +357,9 @@ Bot.reformatCommands = function () {
     if (com) {
       this.prepareActions(com.actions);
 
-      if(com.comType <= "3") {
+      if (com.comType <= "3") {
         this._textCommandCount++;
-        if(com.restriction === "3") {
+        if (com.restriction === "3") {
           this._dmTextCommandCount++;
         }
       }
@@ -742,14 +742,14 @@ Bot.clearUnspecifiedServerCommands = function () {
 };
 
 Bot.setGlobalCommands = function (commands) {
-  this.bot.application?.commands?.set?.(commands).then(function() {}).catch(function(err) {
+  this.bot.application?.commands?.set?.(commands).then(function () {}).catch(function (err) {
     console.error(err);
   })
 };
 
-Bot.setCommandsForServer = function(guild, commands, printMissingAccessError) {
-  if(guild?.commands?.set) {
-    guild.commands.set(commands).then(function() {}).catch((err) => {
+Bot.setCommandsForServer = function (guild, commands, printMissingAccessError) {
+  if (guild?.commands?.set) {
+    guild.commands.set(commands).then(function () {}).catch((err) => {
       if (err.code === 50001) {
         if (this.shouldPrintAnyMissingAccessError() && printMissingAccessError) {
           PrintError(MsgType.MISSING_APPLICATION_COMMAND_ACCESS, guild.name, guild.id);
@@ -936,20 +936,20 @@ Bot.checkRegExps = function (msg) {
 Bot.onInteraction = function (interaction) {
   if (interaction.isCommand()) {
     this.onSlashCommandInteraction(interaction);
-  } else if (interaction.isContextMenu()) {
+  } else if (interaction.isContextMenuCommand()) {
     this.onContextMenuInteraction(interaction);
   } else if (interaction.isModalSubmit()) {
     Actions.checkModalSubmitResponses(interaction);
   } else {
-    if (interaction.component?.type === "BUTTON") {
+    if (interaction.component?.type === DiscordJS.ComponentType.Button) {
       interaction._button = interaction.component;
-    } else if (interaction.component?.type === "SELECT_MENU") {
+    } else if (interaction.component?.type === DiscordJS.ComponentType.StringSelect) {
       interaction._select = interaction.component;
     }
     if (!Actions.checkTemporaryInteractionResponses(interaction)) {
       if (interaction.isButton()) {
         this.onButtonInteraction(interaction);
-      } else if (interaction.isSelectMenu()) {
+      } else if (interaction.isStringSelectMenu()) {
         this.onSelectMenuInteraction(interaction);
       }
     }
@@ -960,24 +960,18 @@ Bot.onSlashCommandInteraction = function (interaction) {
   let interactionName = interaction.commandName;
 
   const group = interaction.options.getSubcommandGroup(false);
-  if (group) {
-    interactionName += " " + group;
-  }
+  if (group) interactionName = `${interactionName} ${group}`;
 
   const sub = interaction.options.getSubcommand(false);
-  if (sub) {
-    interactionName += " " + sub;
-  }
+  if (sub) interactionName = `${interactionName} ${sub}`;
 
-  if (this.$slash[interactionName]) {
-    Actions.preformActionsFromInteraction(interaction, this.$slash[interactionName], true);
-  }
+  if (this.$slash[interactionName]) Actions.preformActionsFromInteraction(interaction, this.$slash[interactionName], true);
 };
 
 Bot.onContextMenuInteraction = function (interaction) {
-  if (interaction.isUserContextMenu()) {
+  if (interaction.isUserContextMenuCommand()) {
     this.onUserContextMenuInteraction(interaction);
-  } else if (interaction.isMessageContextMenu()) {
+  } else if (interaction.isMessageContextMenuCommand()) {
     this.onMessageContextMenuInteraction(interaction);
   }
 };
@@ -1155,6 +1149,7 @@ Actions.callListFunc = function (list, funcName, args) {
   return new Promise((resolve) => {
     const max = list.length;
     let curr = 0;
+
     function callItem() {
       if (curr === max) {
         resolve.apply(this, arguments);
@@ -1167,6 +1162,7 @@ Actions.callListFunc = function (list, funcName, args) {
         callItem();
       }
     }
+
     callItem();
   });
 };
@@ -1183,7 +1179,7 @@ Actions.getSlashParameter = function (interaction, name, defaultValue) {
     return defaultValue ?? null;
   }
 
-  if(interaction.__originalInteraction) {
+  if (interaction.__originalInteraction) {
     const result = this.getParameterFromInteraction(interaction.__originalInteraction, name);
     if (result !== null) {
       return result;
@@ -1578,25 +1574,25 @@ Actions.getParameterFromInteraction = function (interaction, name) {
 Actions.getParameterFromParameterData = function (option) {
   if (typeof option === "object") {
     switch (option?.type) {
-      case "STRING":
-      case "INTEGER":
-      case "BOOLEAN":
-      case "NUMBER": {
+      case DiscordJS.ApplicationCommandOptionType.String:
+      case DiscordJS.ApplicationCommandOptionType.Integer:
+      case DiscordJS.ApplicationCommandOptionType.Boolean:
+      case DiscordJS.ApplicationCommandOptionType.Number: {
         return option.value;
       }
-      case "USER": {
+      case DiscordJS.ApplicationCommandOptionType.User: {
         return option.member ?? option.user;
       }
-      case "CHANNEL": {
+      case DiscordJS.ApplicationCommandOptionType.Channel: {
         return option.channel;
       }
-      case "ROLE": {
+      case DiscordJS.ApplicationCommandOptionType.Role: {
         return option.role;
       }
-      case "MENTIONABLE": {
+      case DiscordJS.ApplicationCommandOptionType.Mentionable: {
         return option.member ?? option.channel ?? option.role ?? option.user;
       }
-      case "ATTACHMENT": {
+      case DiscordJS.ApplicationCommandOptionType.Attachment: {
         return option.attachment?.url ?? "";
       }
     }
@@ -1627,14 +1623,23 @@ Actions.findMemberOrUserFromName = async function (name, server) {
 Actions.findMemberOrUserFromID = async function (id, server) {
   if (!Bot.hasMemberIntents) {
     PrintError(MsgType.MISSING_MEMBER_INTENT_FIND_USER_ID);
+    return null;
   }
-  if (id) {
-    const result = await Bot.bot.users.fetch(id);
-    if (result) {
-      return result;
-    }
-  } else {
+  if (!id) {
     PrintError(MsgType.CANNOT_FIND_USER_BY_ID, id);
+    return null;
+  }
+
+  if (server) {
+    const member = await server.members.fetch(id).catch(noop);
+    if (member) {
+      return member;
+    }
+  }
+
+  const user = await Bot.bot.users.fetch(id).catch(noop);
+  if (user) {
+    return user;
   }
   return null;
 };
@@ -1763,7 +1768,6 @@ Actions.getSendTarget = async function (type, varName, cache) {
 };
 
 Actions.getSendReplyTarget = async function (type, varName, cache) {
-  const { interaction, msg, server } = cache;
   switch (type) {
     case 13:
       const msg = cache.getMessage();
@@ -2051,13 +2055,17 @@ Actions.getVoiceChannel = async function (type, varName, cache) {
 
 Actions.getAnyChannel = async function (type, varName, cache) {
   switch (type) {
-    case 10: return await this.getVoiceChannel(0, varName, cache);
-    case 11: return await this.getVoiceChannel(1, varName, cache);
-    case 12: return await this.getVoiceChannel(7, varName, cache);
-    case 13: return await this.getVoiceChannel(2, varName, cache);
-    default: return await this.getChannel(type, varName, cache);
+    case 10:
+      return await this.getVoiceChannel(0, varName, cache);
+    case 11:
+      return await this.getVoiceChannel(1, varName, cache);
+    case 12:
+      return await this.getVoiceChannel(7, varName, cache);
+    case 13:
+      return await this.getVoiceChannel(2, varName, cache);
+    default:
+      return await this.getChannel(type, varName, cache);
   }
-  return null;
 };
 
 Actions.getListFromData = async function (typeData, varNameData, cache) {
@@ -2195,16 +2203,16 @@ Actions.generateSubCache = function (cache, actions) {
 };
 
 Actions.generateButton = function (button, cache) {
-  const style = button.url ? "LINK" : button.type;
+  const style = button.url ? DiscordJS.ButtonStyle.Link : this.convertStringButtonStyleToEnum(button.style);
   const buttonData = {
-    type: "BUTTON",
+    type: DiscordJS.ComponentType.Button,
     label: this.evalMessage(button.name, cache),
     style,
   };
   if (button.url) {
     buttonData.url = this.evalMessage(button.url, cache);
   } else {
-    buttonData.customId = this.evalMessage(button.id, cache);
+    buttonData.custom_id = this.evalMessage(button.id, cache);
   }
   if (button.emoji) {
     buttonData.emoji = this.evalMessage(button.emoji, cache);
@@ -2212,9 +2220,25 @@ Actions.generateButton = function (button, cache) {
   return buttonData;
 };
 
+Actions.convertStringButtonStyleToEnum = (style) => {
+  switch (style) {
+    case "PRIMARY":
+      return DiscordJS.ButtonStyle.Primary;
+    case "SECONDARY":
+      return DiscordJS.ButtonStyle.Secondary;
+    case "SUCCESS":
+      return DiscordJS.ButtonStyle.Success;
+    case "DANGER":
+      return DiscordJS.ButtonStyle.Danger;
+    case "LINK":
+      return DiscordJS.ButtonStyle.Link;
+  }
+  return DiscordJS.ButtonStyle.Primary;
+}
+
 Actions.generateSelectMenu = function (select, cache) {
-  const selectData = {
-    type: "SELECT_MENU",
+  return {
+    type: DiscordJS.ComponentType.StringSelect,
     customId: this.evalMessage(select.id, cache),
     placeholder: this.evalMessage(select.placeholder, cache),
     minValues: parseInt(this.evalMessage(select.min, cache), 10) ?? 1,
@@ -2226,21 +2250,30 @@ Actions.generateSelectMenu = function (select, cache) {
       return option;
     }),
   };
-  return selectData;
 };
 
 Actions.generateTextInput = function (textInput, defaultCustomId, cache) {
-  const inputTextData = {
-    type: "TEXT_INPUT",
+  return {
+    type: DiscordJS.ComponentType.TextInput,
     customId: !!textInput.id ? textInput.id : defaultCustomId,
     label: this.evalMessage(textInput.name, cache),
     placeholder: this.evalMessage(textInput.placeholder, cache),
     minLength: parseInt(this.evalMessage(textInput.minLength, cache), 10) ?? 0,
     maxLength: parseInt(this.evalMessage(textInput.maxLength, cache), 10) ?? 100,
-    style: textInput.style,
-    required: textInput.required === "true"
+    style: this.convertStringTextInputStyleToEnum(textInput.style),
+    required: Boolean(textInput.required) === true,
   };
-  return inputTextData;
+};
+
+Actions.convertStringTextInputStyleToEnum = (style) => {
+  switch (style) {
+    case "PARAGRAPH":
+      return DiscordJS.TextInputStyle.Paragraph;
+    case "SHORT":
+      return DiscordJS.TextInputStyle.Short;
+    default:
+      return DiscordJS.TextInputStyle.Short;
+  }
 };
 
 Actions.addButtonToActionRowArray = function (array, rowText, buttonData, cache) {
@@ -2249,7 +2282,7 @@ Actions.addButtonToActionRowArray = function (array, rowText, buttonData, cache)
     let found = false;
     for (let i = 0; i < array.length; i++) {
       if (array[i].length < 5) {
-        if (array[i].length === 0 || array[i][0]?.type === "BUTTON") {
+        if (array[i].length === 0 || array[i][0]?.type === DiscordJS.ComponentType.Button) {
           found = true;
           row = i;
           break;
@@ -2414,7 +2447,6 @@ Actions.clearTemporaryInteraction = function (messageId, customId) {
 
 Actions.clearAllTemporaryInteractions = function (messageId) {
   if (this._temporaryInteractions?.[messageId]) {
-    this._temporaryInteractions[messageId] = null;
     delete this._temporaryInteractions[messageId];
   }
 };
@@ -2635,7 +2667,8 @@ const Images = (DBM.Images = {});
 Images.JIMP = null;
 try {
   Images.JIMP = require("jimp");
-} catch {}
+} catch {
+}
 
 Images.getImage = function (url) {
   if (!url.startsWith("http")) url = Actions.getLocalFile(url);
@@ -2646,7 +2679,7 @@ Images.getFont = function (url) {
   return this.JIMP.loadFont(Actions.getLocalFile(url));
 };
 
-Images.isImage = function(obj) {
+Images.isImage = function (obj) {
   if (!Images.JIMP) {
     return false;
   }
@@ -2795,7 +2828,8 @@ Files.convertItem = function (item) {
     let result = "";
     try {
       result = JSON.stringify(item);
-    } catch {}
+    } catch {
+    }
     if (result !== "{}") {
       return item;
     }
@@ -2972,16 +3006,16 @@ Files.initEncryption();
 const Audio = (DBM.Audio = {});
 const { setTimeout } = require("node:timers/promises");
 
-Audio.checkIfHasDependency = function(key) {
-  if(!Audio.packageJson) {
+Audio.checkIfHasDependency = function (key) {
+  if (!Audio.packageJson) {
     const path = require("node:path");
     Audio.packageJson = require("node:fs").readFileSync(path.join(__dirname, "package.json"));
     Audio.packageJson = JSON.parse(Audio.packageJson).dependencies;
-    if(!Audio.packageJson) {
+    if (!Audio.packageJson) {
       Audio.packageJson = 1;
     }
   }
-  if(Audio.packageJson !== 1) {
+  if (Audio.packageJson !== 1) {
     return !!Audio.packageJson[key];
   }
   return false;
@@ -2990,9 +3024,9 @@ Audio.checkIfHasDependency = function(key) {
 Audio.ytdl = null;
 try {
   Audio.ytdl = require("ytdl-core");
-} catch(e) {
+} catch (e) {
   Audio.ytdl = null;
-  if(Audio.checkIfHasDependency("ytdl-core")) {
+  if (Audio.checkIfHasDependency("ytdl-core")) {
     console.error(e);
   }
 }
@@ -3000,9 +3034,9 @@ try {
 Audio.voice = null;
 try {
   Audio.voice = require("@discordjs/voice");
-} catch(e) {
+} catch (e) {
   Audio.voice = null;
-  if(Audio.checkIfHasDependency("@discordjs/voice")) {
+  if (Audio.checkIfHasDependency("@discordjs/voice")) {
     console.error(e);
   }
 }
@@ -3010,15 +3044,15 @@ try {
 Audio.rawYtdl = null;
 try {
   Audio.rawYtdl = require("youtube-dl-exec").exec;
-} catch(e) {
+} catch (e) {
   Audio.rawYtdl = null;
-  if(Audio.checkIfHasDependency("youtube-dl-exec")) {
+  if (Audio.checkIfHasDependency("youtube-dl-exec")) {
     console.error(e);
   }
 }
 
 Audio.Subscription = class {
-  /** @param {import('@discordjs/voice').VoiceConnection} voiceConnection */
+  /** @param {import("@discordjs/voice").VoiceConnection} voiceConnection */
   constructor(voiceConnection) {
     this.voiceConnection = voiceConnection;
     this.audioPlayer = Audio.voice.createAudioPlayer();
@@ -3110,7 +3144,7 @@ Audio.Subscription = class {
           let guild = null;
           try {
             guild = await Bot.bot.guilds.resolve(this.voiceConnection.joinConfig.guildId);
-          } catch(e) {
+          } catch (e) {
             console.error(e);
           }
           if (guild) {
@@ -3132,8 +3166,8 @@ Audio.Subscription = class {
       // resource.encoder.setBitrate(this.bitrate * 1e3);
       this.audioPlayer.play(resource);
       this.queueLock = false;
-    } catch(e) {
-      if(e.toString().includes("opus.node")) {
+    } catch (e) {
+      if (e.toString().includes("opus.node")) {
         console.warn(`-- DBM Error Note --
 If you're seeing an error here, it's likely that the version of
 NodeJS/NPM or the operating system used to install @discordjs/opus
@@ -3204,7 +3238,7 @@ Audio.Track = class {
     let info = null;
     try {
       info = await Audio.ytdl.getInfo(url);
-    } catch(e) {
+    } catch (e) {
       PrintError(MsgType.ERROR_GETTING_YT_INFO, e.stack.toString());
     }
     return new Audio.Track({ title: info?.videoDetails?.title ?? "", url });
@@ -3319,7 +3353,7 @@ Audio.addToQueue = async function ([type, options, url], guild) {
   let track = null;
   try {
     track = await this.getTrack(url, type);
-  } catch(e) {
+  } catch (e) {
     PrintError(MsgType.ERROR_CREATING_AUDIO, e.stack.toString());
   }
   if (track !== null) {
@@ -3336,7 +3370,7 @@ Audio.playImmediately = async function ([type, options, url], guild) {
   let track = null;
   try {
     track = await this.getTrack(url, type);
-  } catch(e) {
+  } catch (e) {
     PrintError(MsgType.ERROR_CREATING_AUDIO, e.stack.toString());
   }
   if (track !== null) {
