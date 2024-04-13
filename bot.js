@@ -762,9 +762,9 @@ Bot.setCommandsForServer = function(guild, commands, printMissingAccessError) {
 };
 
 Bot.setAllServerCommands = function (commands, printMissingAccessError = true) {
-  this.bot.guilds.cache.forEach((key, value) => {
-    this.bot.guilds
-      .fetch(key)
+  this.bot.guilds.cache.forEach((cachedGuild, value) => {
+    cachedGuild
+      .fetch()
       .then((guild) => {
         this.setCommandsForServer(guild, commands, printMissingAccessError);
       })
@@ -776,9 +776,9 @@ Bot.setAllServerCommands = function (commands, printMissingAccessError = true) {
 
 Bot.setCertainServerCommands = function (commands, serverIdList) {
   if (this.clearUnspecifiedServerCommands()) {
-    this.bot.guilds.cache.forEach((key, value) => {
-      this.bot.guilds
-        .fetch(key)
+    this.bot.guilds.cache.forEach((cachedGuild, value) => {
+      cachedGuild
+        .fetch()
         .then((guild) => {
           if (serverIdList.includes(guild.id)) {
             this.setCommandsForServer(guild, commands, true);
