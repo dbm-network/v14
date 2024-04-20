@@ -579,6 +579,32 @@ Bot.validateSlashCommandParameters = function (parameters, commandName) {
         existingNames[name] = true;
         paramsData.name = name;
         paramsData.description = this.validateSlashCommandDescription(paramsData.description);
+        switch(paramsData.type) {
+          case 'STRING':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.String;
+            break;
+          case 'INTEGER':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Integer;
+            break;
+          case 'NUMBER':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Number;
+            break;
+          case 'BOOLEAN':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Boolean;
+            break;
+          case 'USER':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.User;
+            break;
+          case 'CHANNEL':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Channel;
+            break;
+          case 'ROLE':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Role;
+            break;
+          case 'ATTACHMENT':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Attachment;
+            break;
+        }
         if (paramsData.required) {
           requireParams.push(paramsData);
         } else {
@@ -3526,7 +3552,7 @@ Reflect.defineProperty(DiscordJS.Guild.prototype, "getDefaultChannel", {
     if (!channel) {
       [...this.channels.cache.values()].forEach((c) => {
         if (
-          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.Permissions.FLAGS.SEND_MESSAGES) &&
+          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.PermissionsBitField.Flags.SEND_MESSAGES) &&
           (c.type === "GUILD_TEXT" || c.type === "GUILD_NEWS")
         ) {
           if (!channel || channel.position > c.position) {
@@ -3545,7 +3571,7 @@ Reflect.defineProperty(DiscordJS.Guild.prototype, "getDefaultVoiceChannel", {
     if (!channel) {
       [...this.channels.cache.values()].forEach((c) => {
         if (
-          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.Permissions.FLAGS.SEND_MESSAGES) &&
+          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.PermissionsBitField.Flags.SEND_MESSAGES) &&
           c.type === "GUILD_VOICE"
         ) {
           if (!channel || channel.position > c.position) {
