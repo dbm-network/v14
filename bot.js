@@ -457,15 +457,15 @@ Bot.createApiJsonFromCommand = function (com, name) {
   };
   switch (com.comType) {
     case "4": {
-      result.type = "CHAT_INPUT";
+      result.type = DiscordJS.ApplicationCommandType.ChatInput;
       break;
     }
     case "5": {
-      result.type = "USER";
+      result.type = DiscordJS.ApplicationCommandType.User;
       break;
     }
     case "6": {
-      result.type = "MESSAGE";
+      result.type = DiscordJS.ApplicationCommandType.Message;
       break;
     }
   }
@@ -934,7 +934,7 @@ Bot.checkRegExps = function (msg) {
 };
 
 Bot.onInteraction = function (interaction) {
-  if (interaction.isCommand()) {
+  if (interaction.isChatInputCommand()) {
     this.onSlashCommandInteraction(interaction);
   } else if (interaction.isContextMenuCommand()) {
     this.onContextMenuInteraction(interaction);
