@@ -457,15 +457,15 @@ Bot.createApiJsonFromCommand = function (com, name) {
   };
   switch (com.comType) {
     case "4": {
-      result.type = "CHAT_INPUT";
+      result.type = DiscordJS.ApplicationCommandType.ChatInput;
       break;
     }
     case "5": {
-      result.type = "USER";
+      result.type = DiscordJS.ApplicationCommandType.User;
       break;
     }
     case "6": {
-      result.type = "MESSAGE";
+      result.type = DiscordJS.ApplicationCommandType.Message;
       break;
     }
   }
@@ -579,6 +579,32 @@ Bot.validateSlashCommandParameters = function (parameters, commandName) {
         existingNames[name] = true;
         paramsData.name = name;
         paramsData.description = this.validateSlashCommandDescription(paramsData.description);
+        switch(paramsData.type) {
+          case 'STRING':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.String;
+            break;
+          case 'INTEGER':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Integer;
+            break;
+          case 'NUMBER':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Number;
+            break;
+          case 'BOOLEAN':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Boolean;
+            break;
+          case 'USER':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.User;
+            break;
+          case 'CHANNEL':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Channel;
+            break;
+          case 'ROLE':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Role;
+            break;
+          case 'ATTACHMENT':
+            paramsData.type = DiscordJS.ApplicationCommandOptionType.Attachment;
+            break;
+        }
         if (paramsData.required) {
           requireParams.push(paramsData);
         } else {
@@ -934,7 +960,7 @@ Bot.checkRegExps = function (msg) {
 };
 
 Bot.onInteraction = function (interaction) {
-  if (interaction.isCommand()) {
+  if (interaction.isChatInputCommand()) {
     this.onSlashCommandInteraction(interaction);
   } else if (interaction.isContextMenuCommand()) {
     this.onContextMenuInteraction(interaction);
@@ -3526,7 +3552,7 @@ Reflect.defineProperty(DiscordJS.Guild.prototype, "getDefaultChannel", {
     if (!channel) {
       [...this.channels.cache.values()].forEach((c) => {
         if (
-          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.Permissions.FLAGS.SEND_MESSAGES) &&
+          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.PermissionsBitField.Flags.SEND_MESSAGES) &&
           (c.type === "GUILD_TEXT" || c.type === "GUILD_NEWS")
         ) {
           if (!channel || channel.position > c.position) {
@@ -3545,7 +3571,7 @@ Reflect.defineProperty(DiscordJS.Guild.prototype, "getDefaultVoiceChannel", {
     if (!channel) {
       [...this.channels.cache.values()].forEach((c) => {
         if (
-          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.Permissions.FLAGS.SEND_MESSAGES) &&
+          c.permissionsFor(DBM.Bot.bot.user)?.has(DiscordJS.PermissionsBitField.Flags.SEND_MESSAGES) &&
           c.type === "GUILD_VOICE"
         ) {
           if (!channel || channel.position > c.position) {
