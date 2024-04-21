@@ -98,13 +98,15 @@ module.exports = {
     const member = await this.getMemberFromData(data.member, data.varName, cache);
     const reason = this.evalMessage(data.reason, cache);
     const days = parseInt(data.days, 10) || 0;
+    const deleteMessageSeconds = days * 24 * 60 * 60;
+
     if (Array.isArray(member)) {
-      this.callListFunc(member, "ban", [{ days, reason }])
+      this.callListFunc(member, "ban", [{ deleteMessageSeconds, reason }])
         .then(() => this.callNextAction(cache))
         .catch((err) => this.displayError(data, cache, err));
     } else if (member?.ban) {
       member
-        .ban({ days, reason })
+        .ban({ deleteMessageSeconds, reason })
         .then(() => this.callNextAction(cache))
         .catch((err) => this.displayError(data, cache, err));
     } else {
